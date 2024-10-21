@@ -31,10 +31,10 @@ const createRequestMessages = async (req: Request) => {
 export async function POST(req: Request) {
   const inputMessages = await createRequestMessages(req);
   const response = await openai.chat.completions.create({
-    model: "gpt-4-vision-preview",
+    model: "gpt-4o-mini",
     stream: true,
     messages: inputMessages,
-    max_tokens: 2000,
+    max_tokens: 128000,
   });
   const stream = OpenAIStream(response);
   return new StreamingTextResponse(stream);
