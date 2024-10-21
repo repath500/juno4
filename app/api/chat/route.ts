@@ -34,7 +34,7 @@ export async function POST(req: Request) {
     model: "gpt-4o-mini",
     stream: true,
     messages: inputMessages,
-    max_tokens: 128000,
+    max_tokens: 32000,
   });
   const stream = OpenAIStream(response);
   return new StreamingTextResponse(stream);
